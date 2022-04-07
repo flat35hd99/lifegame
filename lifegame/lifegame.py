@@ -32,7 +32,7 @@ class LifeGame():
                     self.state[ix, iy] = 1
                 # else _count == 2, then leave present value
     
-    def run(self, steps=100):
+    def run(self, steps=1000):
         for _ in range(steps):
             self.update()
             self.observe()
@@ -66,9 +66,8 @@ class AnimationObserver():
         self.images = []
     
     def observe(self, state: np.ndarray):
-        # image = plt.plot(np.where(state == 1, 1, 0))
-        image = self.fig.pcolor(state, cmap=plt.cm.Blues)
-        self.images.append(image)
+        image = plt.imshow(state, cmap='gray', vmin=0, vmax=1)
+        self.images.append([image])
     
     def output(self, filename):
         _anime = anime.ArtistAnimation(self.fig, self.images, interval=100)
