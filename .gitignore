@@ -1,3 +1,4 @@
 /.pytest_cache
-/hogehoge.gif
+*.gif
 .venv/
+**/__pycache__/

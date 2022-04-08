@@ -1,4 +1,3 @@
-from code import interact
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anime
@@ -44,24 +43,24 @@ class LifeGame():
         self.observer.output(filename=filename)
             
             
-# class AbstractObserver():
-#     """Abstract observer
-#     Initialize once
-#     Recieve numpy ndarray and Do something for (each) step(s)
-#     Output result(s) by output()
-#     """
-#     def __init__(self) -> None:
-#         pass
+class AbstractObserver():
+    """Abstract observer
+    Initialize once
+    Recieve numpy ndarray and Do something for (each) step(s)
+    Output result(s) by output()
+    """
+    def __init__(self) -> None:
+        pass
 
-#     def observe(self, state: np.ndarray) -> None:
-#         pass
-    
-#     def output(self, filename) -> None:
-#         pass
+    def observe(self, state: np.ndarray) -> None:
+        pass
 
-class AnimationObserver():
+    def output(self, filename) -> None:
+        pass
+
+class AnimationObserver(AbstractObserver):
     def __init__(self):
-        # super().__init__()
+        super().__init__()
         self.fig = plt.figure()
         self.images = []
     

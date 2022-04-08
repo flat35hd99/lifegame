@@ -90,5 +90,5 @@ def test_run():
     state[N // 2 - 1, N // 2 + 1] = 1
     
     game = LifeGame(initial_state=state, observer=AnimationObserver())
-    game.run()
+    game.run(steps=10)
     game.output_result("hogehoge.gif")
