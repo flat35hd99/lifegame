@@ -34,7 +34,7 @@ def main():
     N = 100
     center = N//2
     state = np.zeros((N,N))
-    # Separated
+    # Independent
     state = create_locomotive(state=state, start_x=center, start_y=center)
     state = create_locomotive(state=state, start_x=center-30, start_y=center)
     # Disappered
@@ -45,8 +45,8 @@ def main():
     state = create_locomotive(state=state, start_x=center-15, start_y=center - 20)
 
     game = LifeGame(initial_state=state, observer=AnimationObserver())
-    game.run(steps=100)
-    game.output_result("hogehoge.gif")
+    game.run(steps=200)
+    game.output_result("example.gif")
 
 if __name__ == '__main__':
     main()
