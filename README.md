@@ -1,7 +1,7 @@
 # Lifegame sample
 
-Usage
+See [sample](sample.py).
 
-```python
+Its output will
 
-```
+![example output](example.gif)
