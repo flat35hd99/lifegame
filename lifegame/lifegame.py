@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.animation as anime
+import abc
 
 class LifeGame():
     def __init__(self, initial_state, observer=None):        
@@ -43,24 +44,23 @@ class LifeGame():
         self.observer.output(filename=filename)
             
             
-class AbstractObserver():
+class AbstractObserver(abc.ABC):
     """Abstract observer
     Initialize once
     Recieve numpy ndarray and Do something for (each) step(s)
     Output result(s) by output()
     """
-    def __init__(self) -> None:
-        pass
 
+    @abc.abstractmethod
     def observe(self, state: np.ndarray) -> None:
         pass
-
+    
+    @abc.abstractmethod
     def output(self, filename) -> None:
         pass
 
 class AnimationObserver(AbstractObserver):
     def __init__(self):
-        super().__init__()
         self.fig = plt.figure()
         self.images = []
     
